@@ -97,7 +97,7 @@ colorscheme molokai
 " colorscheme mine
 " colorscheme zmrok
 " }}}
-" GUI setting{{{
+" Mac setting{{{
 if has("gui_running") 
         if has("gui_macvim")
                 " Display {{{
@@ -444,27 +444,7 @@ let g:syntastic_check_on_wq=0
 " let g:syntastic_auto_loc_list=1
 " }}}
 " Alias {{{
-
-
-command! Ks lcd ~/work/git/kings-server/ 
-command! Gt lcd ~/work/git/global-theat-server/
-command! Gg lcd ~/work/git/global-theat-gateway/
-command! Gm lcd ~/work/git/global-theat-moderator/
-command! Ka lcd ~/work/git/kings-admin-api/ 
-command! Kga lcd ~/work/git/kings-gateway-admin/
-command! Kg lcd ~/work/git/kings-gateway/
-command! Akm lcd ~/work/git/kings-moderator/
 command! Ke2 lcd ~/work/git/ke2/
-command! Aks lcd ~/work/git/android-kings-server/ 
-command! Aka lcd ~/work/git/android-kings-admin-api/ 
-command! Akga lcd ~/work/git/android-kings-gateway-admin/
-command! Akg lcd ~/work/git/android-kings-gateway/
-
-"command! Agm lcd ~/work/git/kings-moderator/
-command! Ags lcd ~/work/git/android-galaxy-server/ 
-command! Aga lcd ~/work/git/android-galaxy-admin-api/ 
-command! Agga lcd ~/work/git/android-galaxy-gateway-admin/
-command! Agg lcd ~/work/git/android-galaxy-gateway/
 "}}}
 " FileType setting {{{
 " autocmd FileType c,cpp,java,go,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> :%s/\s\+$//e
