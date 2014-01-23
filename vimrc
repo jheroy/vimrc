@@ -19,7 +19,7 @@ Bundle 'rizzatti/dash.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'gregsexton/gitv'
 Bundle 'vim-scripts/matchit.zip'
-Bundle 'scrooloose/nerdcommenter'
+"Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'scrooloose/syntastic'
@@ -33,6 +33,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'jheroy/vim-gocode'
 Bundle 'nsf/gocode'
 Bundle 'tomasr/molokai'
+Bundle 'vim-scripts/FencView.vim'
+Bundle 'tomtom/tcomment_vim'
 " }}}
 " Pathogen setting {{{
 "execute pathogen#infect('base/{}') 
@@ -93,6 +95,8 @@ autocmd FileType go :set noexpandtab
 let macvim_skip_colorscheme=1
 let g:molokai_original=1
 set background=dark
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=#77161A
+hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=#77161A
 colorscheme molokai
 " colorscheme mine
 " colorscheme zmrok
@@ -108,13 +112,16 @@ if has("gui_running")
                 hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=#DEf8C5
                 hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=#DEf8C5
                 hi VertSplit   cterm=NONE ctermbg=darkred ctermfg=white guibg=#FDF6E3
+                "hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=#601312
+                "hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=#601312
+                "hi VertSplit   cterm=NONE ctermbg=darkred ctermfg=white guibg=#272822
                 set fillchars=vert:\ 
                 set guifontwide=翩翩体-简:h13
                 set clipboard+=unnamed
                 set vb t_vb=
                 " set guifont=Consolas:h14
                 set guifont=GohuFont:h14
-                set transparency=5 " Make the window slightly transparent
+                set transparency=3 " Make the window slightly transparent
                 set numberwidth=4
                 set guioptions=''
                 "}}}
@@ -130,7 +137,7 @@ if has("gui_running")
                 imap <D-r> <esc>:MyCtrlPTag<cr>
                 nmap <c-]> g<c-]>
                 nmap <D-]> g<c-]>
-                nmap <C-x> :!
+                " nmap <C-x> :!
                 " Open goto symbol on all buffers
                 nmap <D-R> :CtrlPBufTagAll<cr>
                 imap <D-R> <esc>:CtrlPBufTagAll<cr>
@@ -389,13 +396,6 @@ let g:session_default_to_last = 1
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 "}}}
-" Multi cursor {{{
-let g:multi_cursor_use_default_mapping = 0
-let g:multi_cursor_next_key = '<D-d>'
-let g:multi_cursor_prev_key = '<D-u>'
-let g:multi_cursor_skip_key = '<D-k>' "until we got multiple keys support
-let g:multi_cursor_quit_key = '<Esc>'
-"}}}
 " UltiSnips {{{
 function! g:UltiSnips_Complete()
         call UltiSnips_ExpandSnippet()
@@ -454,7 +454,7 @@ command! Ke2 lcd ~/work/git/ke2/
 autocmd FileType vim set fdm=marker
 autocmd FileType go set fdm=syntax
 " }}}
-" 让vim记住上次编辑的位置 {{{
+" Remember last location{{{
 autocmd BufReadPost *
                         \ if line("'\"")>0&&line("'\"")<=line("$") |
                         \   exe "normal g'\"" |
@@ -542,3 +542,5 @@ let g:ackhighlight=1
 let g:TagmaBufMgrLastLine = 1
 autocmd BufWinEnter,BufNewFile * silent tabo
 let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:gocode_gofmt_tabs=''
+let g:go_fmt_autofmt = 0
